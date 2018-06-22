@@ -39,8 +39,6 @@ like this:
 
 ![success](images/projectSetupWorked.png)
 
-*Your project should look like [this commit](https://github.com/Larkenx/kotlin-roguelike-tutorial/commit/f100188a6239c267ac039aaa60aa6ab605a88362) at this point* 
-
 ### Adding SquidLib and KTerminal Dependencies via Gradle
 Gradle is used to manage the dependencies for your project.
 You can add new libraries from git repositories by opening your `build.gradle` in the root project directory. We will be using
@@ -71,6 +69,10 @@ project(":desktop") {
     }
 }
 ```
+
+After adding your new gradle dependencies, you'll want to repeat an earlier step to get the new libraries pulled down:
+> You may need to open up the Gradle window in IntelliJ and run Refresh All Projects. It
+  can be found under `View > Tool Windows > Gradle`.
 
 ### Converting the LibGDX starter kit to use Kotlin
 Up until now, we have just been using the Java starter kit for LibGDX. To start using Kotlin, we can use IntelliJ's 
