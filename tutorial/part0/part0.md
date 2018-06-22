@@ -16,15 +16,15 @@ tool by opening the JAR, and create a new project. I am only going to cover how 
 You will also need to open up the *Advanced* settings and check *Use Kotlin*. 
 
 <!-- Show screenshot of libgdx set up options -->
-![libgdx options](images/libgdxSetupConfig.png)
+![libgdx options](libgdxSetupConfig.png)
 
 Once you set up your project, you'll want to import the project into Intellij by opening Intellij,
 and selecting import project as a Gradle project. You may need to open up the Gradle window in IntelliJ and run Refresh All Projects. It
-can be found under `View > Tool Windows > Gradle`.  
+can be found under `View > Tool Windows > Gradle`.
 
-![open tool window](images/openGradleToolWindow.png)
+![open tool window](openGradleToolWindow.png)
 
-![refresh projects](images/refreshGradleProjects.png)
+![refresh projects](refreshGradleProjects.png)
 
 Once the gradle build finishes, you should be able to build your project and run the Desktop Application
 class under `desktop\src\com\mygdx\game\desktop\DesktopLauncher.java` and it will open up the LibGDX starter application. If you have
@@ -32,12 +32,12 @@ an error that says something about not being able to find a file, you will need 
 and set the working directory to be your `core/assets` folder - that way you can refer to any assets like a font sheet image
 with a relative path.
 
-![set working directory](images/selectWorkingDirectory.png)
+![set working directory](selectWorkingDirectory.png)
 
 If you did everything right, when you run the main method of the DesktopLauncher class it should show a window that looks
 like this:
 
-![success](images/projectSetupWorked.png)
+![success](projectSetupWorked.png)
 
 ### Adding SquidLib and KTerminal Dependencies via Gradle
 Gradle is used to manage the dependencies for your project.
@@ -134,3 +134,5 @@ class MyGdxGame : ApplicationAdapter() {
 
 Be sure to run the `DesktopApplication`'s main method again to make sure our project still works. If so, we're ready to actually start
 making the roguelike!
+
+<!--[Go to part 1 - Drawing the '@' symbol and moving it around](../part1/part1.md)-->
