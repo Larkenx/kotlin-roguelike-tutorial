@@ -1,4 +1,4 @@
-# Creating a Roguelike in Kotlin, KTerminal, and KDX (LibGDX bindings for Kotlin)
+# Creating a Roguelike in Kotlin, KTerminal, and LibGDX
 
 ## Part 0 - Setting up your project
 

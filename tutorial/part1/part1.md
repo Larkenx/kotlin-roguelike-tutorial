@@ -1,7 +1,10 @@
-# Creating a Roguelike in Kotlin, KTerminal, and KDX (LibGDX bindings for Kotlin)
+# Creating a Roguelike in Kotlin, KTerminal, and LibGDX
 
 ## Part 1 -  Drawing the '@' symbol and moving it around
-We're now ready to create a terminal renderer using KTerminal and render some ASCII characters to the screen. Set the following properties for the `config` object. We're just setting the width, height, fps, and title of the window:
+In this part of the tutorial, we'll learn about how we can use KTerminal to draw characters to the screen and add input handling to move and keep track of the player position.
+
+### Setup the height and width of the desktop launcher window
+Before we dive in, let's set up some of the configuration for `DesktopLauncher.kt` so that our game displays properly. Set the following properties for the `config` object. We're just setting the width, height, fps, and title of the window:
 ```kotlin
 object DesktopLauncher {
     @JvmStatic
@@ -17,9 +20,6 @@ object DesktopLauncher {
     }
 }
 ```
-
-### Setup the height and width of the desktop launcher window
-Before we dive in, let's set up some of the configuration for `DesktopLauncher.kt` so that our game displays properly.
 
 ### LibGDX Application Adapter - High Level Overview
 Since we are using LibGDX, it's important to understand briefly what a LibGDX application is doing. There are three major components that we'll be using in this tutorial, and those are the three methods that we're overriding from the base `ApplicationAdapter` class. The three methods are `create`, `render`, and `dispose`. The `create` function is called once to instantiate all our games' properties, like loading assets, creating our terminal renderer, setting some of the initial "engine" to run our game. The `render` function is called every frame and this is where we put our code to re-draw the game. Lastly, the `dispose` function is called when the application is destroyed, and it unloads the assets & the sprite batch. We'll be writing code in these three functions to:
@@ -53,7 +53,7 @@ class MyGdxGame : ApplicationAdapter() {
 }
 ```
 
-Now that we've added these new properties to our class, we'll want to instantiate them in our `create()` method. Notice that we aren't intializing the properties (hence the `lateinit` qualifier for our class properties. This is because we want to intialize them in the `create` method, which is what LibGDX is using internally to make sure all of the assets are loaded and it's ready for our methods to begin using LibGDX's features.
+Now that we've added these new properties to our class, we'll want to instantiate them in our `create()` method. Notice that we aren't initializing the properties (hence the `lateinit` qualifier for our class properties). This is because we want to initialize them in the `create` method, which is what LibGDX is using internally to make sure all of the assets are loaded and it's ready for our methods to begin using LibGDX's features.
 
 In the `MyGdxGame.create` method, we're going to instantiate the SpriteBatch and KTerminalData. The `KTerminalData` constructor takes in a width and height, as well as a default foreground and background color. The `KTerminalRenderer` constructor takes in a string that refers to the name of our font sheet image, the scale, and the sprite batch we've created for LibGDX to use internally.
 ```kotlin
@@ -97,7 +97,7 @@ override fun render() {
     terminalData.clearAll()
     terminalData.resetCursor()
     /*  Drawing Code goes here */
-    terminalData[24, 13].write("@")
+    terminalData[width / 2, height / 2].write("@")
     /* End drawing code */
     batch.use {
         terminalRenderer.render(0f, 0f, terminalData)
@@ -136,7 +136,7 @@ Now that we've got basic rendering down, we can move on to adding some input con
 
 > One thing to note about LibGDX's `Vector2` data structure is that it uses floats for its elements. We'll need to handle this appropriately when grabbing the player position since we're drawing to integer coordinates. We're going to resolve this in Part 3, where we begin to abstract out the player as its own class!
 
-While we're at it, we want to add another `lateinit` property for the LibGDX `InputAdapter`. Here's what your properties under the class declaration should like:
+While we're at it, we want to add another `lateinit` property for the LibGDX `InputAdapter`. At first, IntelliJ will throw some errors that a type of `InputHandler` is not found, but this is fine because we're about to add a new class to our project. Here's what your properties under the class declaration should like:
 
 ```kotlin
 class MyGdxGame : ApplicationAdapter() {
