@@ -4,4 +4,6 @@ This repository is meant to serve as a tutorial for folks to create a roguelike 
 
 ### Table of Contents
 - [Part 0 - Setting up the project](tutorial/part0/part0.md)
+- [Part 1 - Drawing the '@' symbol and moving it around](tutorial/part1/part1.md)
+
 

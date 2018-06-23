@@ -135,4 +135,4 @@ class MyGdxGame : ApplicationAdapter() {
 Be sure to run the `DesktopApplication`'s main method again to make sure our project still works. If so, we're ready to actually start
 making the roguelike!
 
-<!--[Go to part 1 - Drawing the '@' symbol and moving it around](../part1/part1.md)-->
+[Go to part 1 - Drawing the '@' symbol and moving it around](../part1/part1.md)
