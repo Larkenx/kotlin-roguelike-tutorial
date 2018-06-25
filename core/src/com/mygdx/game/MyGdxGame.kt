@@ -38,7 +38,7 @@ class MyGdxGame : ApplicationAdapter() {
         terminalData.clearAll()
         /*  Drawing Code goes here */
         terminalData.resetCursor()
-        terminalData[0, 0].drawBox(
+        terminalData[0, 0][Color.CYAN, Color.BLACK].drawBox(
                 width = width,
                 height = height,
                 topRight = KTerminalData.BOX_DOUBLE_DOWN_LEFT,
