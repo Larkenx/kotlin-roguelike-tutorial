@@ -5,6 +5,8 @@ import com.badlogic.gdx.backends.lwjgl.LwjglApplicationConfiguration
 import com.mygdx.game.MyGdxGame
 
 object DesktopLauncher {
+    val game: MyGdxGame = MyGdxGame()
+
     @JvmStatic
     fun main(arg: Array<String>) {
         val config = LwjglApplicationConfiguration()
@@ -14,6 +16,6 @@ object DesktopLauncher {
         config.backgroundFPS = 60
         config.foregroundFPS = 60
         config.resizable = false
-        LwjglApplication(MyGdxGame(), config)
+        LwjglApplication(game, config)
     }
 }

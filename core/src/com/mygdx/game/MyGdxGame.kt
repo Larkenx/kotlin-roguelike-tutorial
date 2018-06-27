@@ -20,13 +20,14 @@ class MyGdxGame : ApplicationAdapter() {
 
     lateinit var inputAdapter: InputHandler
     lateinit var playerPosition: Vector2
+
     fun playerX(): Int = playerPosition.x.toInt() // grabs the float x component from the vector2 and returns it as an int
     fun playerY(): Int = playerPosition.y.toInt() // grabs the float y component from the vector2 and returns it as an int
 
     override fun create() {
         batch = SpriteBatch()
         terminalData = KTerminalData(width, height, Color.WHITE, Color.BLACK)
-        terminalRenderer = KTerminalRenderer("fontSheet.png", 1f, batch)
+        terminalRenderer = KTerminalRenderer("Cheepicus_8x8x2.png", 1f, batch)
         // set the player's location to be the middle of the screen
         playerPosition = Vector2(Math.floor(width / 2.0).toFloat(), Math.floor(height / 2.0).toFloat())
         inputAdapter = InputHandler(this) // create a new input handler with a reference to our game
