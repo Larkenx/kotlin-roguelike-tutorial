@@ -1,4 +1,5 @@
 # Creating a Roguelike in Kotlin, KTerminal, and LibGDX
+> This tutorial is currently a work-in-progress. Any and all parts will probably undergo significant changes!
 
 This repository is meant to serve as a tutorial for folks to create a roguelike using [KTerminal](https://github.com/heatherhaks/kterminal) & [Squidlib](https://github.com/SquidPony/SquidLib) in Kotlin. KTerminal is a Kotlin terminal renderer created by the awesome [heatherhaks](https://github.com/heatherhaks). Behind the scenes, KTerminal is using LibGDX, a java game development framework. Squidlib is a large collection of algorithms for various uses, but we'll be specifically using some of the artificial intelligence and map generation algorithms!
 

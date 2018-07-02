@@ -4,14 +4,12 @@ import com.badlogic.gdx.Input
 import com.halfdeadgames.kterminal.KTerminalGlyph
 import com.mygdx.game.MyGdxGame
 
-class Player(x: Int, y: Int, glyph: KTerminalGlyph, name: String) : Entity(x, y, glyph, name), Actor {
+class Player(x: Int, y: Int, glyph: KTerminalGlyph, name: String) : Actor(x, y, glyph, name) {
     override var speed = 1 // speed of 1
 
-    override fun act(game: MyGdxGame) {
+    override fun act(game: MyGdxGame) {}
 
-    }
-
-    fun handleKeyUp(keycode: Int) {
+    fun handleKeyUp(game: MyGdxGame, keycode: Int) {
         when (keycode) {
         // AWSD keys
             Input.Keys.W -> move(0, -1)
@@ -42,6 +40,7 @@ class Player(x: Int, y: Int, glyph: KTerminalGlyph, name: String) : Entity(x, y,
             Input.Keys.NUMPAD_1 -> move(-1, 1)
             Input.Keys.NUMPAD_3 -> move(1, 1)
         }
+        game.nextTurn()
     }
 }
 

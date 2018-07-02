@@ -51,13 +51,13 @@ project(":desktop") {
 
 project(":core") {
     apply plugin: "kotlin"
-
-
+    sourceSets.test.java.srcDirs = ["/test"]
     dependencies {
         compile "com.badlogicgames.gdx:gdx:$gdxVersion"
         compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion"
         compile 'com.github.heatherhaks:kterminal:-SNAPSHOT'
         compile 'com.squidpony:squidlib-util:3.0.0-b9'
+        compile 'junit:junit:4.12'
     }
 }
 

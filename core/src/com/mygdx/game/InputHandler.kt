@@ -16,6 +16,9 @@ class InputHandler(val game: MyGdxGame) : KtxInputAdapter {
 
     override fun keyUp(keycode: Int): Boolean {
         // if it's the player's turn, then we process the input
+        if (game.actingActor === game.player) {
+            game.player.handleKeyUp(game, keycode)
+        }
         return true
     }
 }
